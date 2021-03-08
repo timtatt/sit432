@@ -1,0 +1,15 @@
+#/bin/bash
+
+subscription_id=$1
+
+az login
+
+az account set --subscription $subscription_id
+
+resource_group_id=$(az group list | jq '.[0].name')
+echo $resource_group_id
+
+cat sandbox.tfvars EOF
+subscription_id = "${subscription_id}"
+resource_group_name = "${resource_group_name}"
+<<EOF
