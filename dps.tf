@@ -41,3 +41,18 @@ resource "null_resource" "verify_dps_certificate" {
     dps_root_name = azurerm_iothub_dps_certificate.dps_root.name
   }
 }
+
+resource "null_resource" "enrollment_group" {
+  provisioner "local-exec" {
+    command = "python3 create_enrollment_group.py ${azurerm_iothub_dps.pihub_dps.name} ${data.azurerm_resource_group.sandbox.name} iothub-devices ${azurerm_iothub_dps_certificate.dps_root.name}"
+    working_dir = "scripts"
+  }
+
+  depends_on = [
+    null_resource.verify_dps_certificate
+  ]
+
+  triggers = {
+    dps_root_name = azurerm_iothub_dps_certificate.dps_root.name
+  }
+}

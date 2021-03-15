@@ -1,5 +1,5 @@
-.idea/**
-.terraform/**
+.idea/*
+.terraform/*
 *.tfstate
 *.tfstate.*
 certificates/*
