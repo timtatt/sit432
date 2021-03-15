@@ -14,4 +14,4 @@ subscription_id = "${subscription_id}"
 resource_group_name = "${resource_group_id}"
 EOF
 
-rm terraform.tfstate
+terraform state rm `terraform state list`
