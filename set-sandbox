@@ -6,10 +6,12 @@ az login
 
 az account set --subscription $subscription_id
 
-resource_group_id=$(az group list | jq '.[0].name')
+resource_group_id=$(az group list | jq -r '.[0].name')
 echo $resource_group_id
 
-cat sandbox.tfvars EOF
+cat <<EOF > sandbox.tfvars
 subscription_id = "${subscription_id}"
-resource_group_name = "${resource_group_name}"
-<<EOF
+resource_group_name = "${resource_group_id}"
+EOF
+
+rm terraform.tfstate
