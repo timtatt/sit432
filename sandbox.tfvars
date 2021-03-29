@@ -1,2 +1,2 @@
-subscription_id = "c5fb91a9-7c27-4cd7-8d48-1c0d76932e3d"
-resource_group_name = "learn-0bb8d8ef-4798-4814-adbb-5567987b3130"
+subscription_id = "a67eb823-344a-4ddd-8346-ebe028190ccc"
+resource_group_name = "learn-207f0374-f362-404a-932a-4f376b6a7248"

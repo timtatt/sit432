@@ -56,3 +56,7 @@ resource "null_resource" "enrollment_group" {
     dps_root_name = azurerm_iothub_dps_certificate.dps_root.name
   }
 }
+
+output "dps_scope_id" {
+  value = azurerm_iothub_dps.pihub_dps.id_scope
+}

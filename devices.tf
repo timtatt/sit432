@@ -1,6 +1,8 @@
 module "device1" {
   source = "./modules/iot-device"
   device_name = "iothub-device1"
+
+  depends_on = [null_resource.verify_dps_certificate]
 }
 
 module "device2" {
